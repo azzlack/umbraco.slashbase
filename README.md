@@ -11,11 +11,11 @@ uBase
 4. Add a new class file and derive from SlashBaseController.
 5. If you want to add Umbraco security, add the SlashBaseSecurity attribute to the method or class and set one or more of the following properties: 
 *(NOTE: Class attribute overrides method attribute)*
-* AllowedMembers
-* AllowedMemberGroups
-* AllowedMemberTypes
-* AllowedUsers
-* AllowedUserTypes
+  * AllowedMembers
+  * AllowedMemberGroups
+  * AllowedMemberTypes
+  * AllowedUsers
+  * AllowedUserTypes
 6. Compile your class and drop it in the bin folder of your Umbraco installation. 
 You can read more about how the routing works by reading the following guide: [http://www.asp.net/web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api](http://www.asp.net/web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api) (Just change "api" with "ubase").
 Example (from the Tests.Controllers project): 
