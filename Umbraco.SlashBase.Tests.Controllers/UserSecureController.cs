@@ -7,7 +7,7 @@
 
     public class UserSecureController : SlashBaseController
     {
-        [SlashBaseMethod(AllowedUsers = new[] { "admin" })]
+        [SlashBaseSecurity(AllowedUsers = new[] { "admin" })]
         public HttpResponseMessage Get()
         {
             return new HttpResponseMessage() { Content = new StringContent("Hello admin user!") };

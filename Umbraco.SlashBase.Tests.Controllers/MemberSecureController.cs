@@ -7,7 +7,7 @@
 
     public class MemberSecureController : SlashBaseController
     {
-        [SlashBaseMethod(AllowedMembers = new[] { "admin" })]
+        [SlashBaseSecurity(AllowedMembers = new[] { "admin" })]
         public HttpResponseMessage Get()
         {
             return new HttpResponseMessage() { Content = new StringContent("Hello admin member!") };

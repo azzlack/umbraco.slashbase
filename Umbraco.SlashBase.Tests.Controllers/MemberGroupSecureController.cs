@@ -7,7 +7,7 @@
 
     public class MemberGroupSecureController : SlashBaseController
     {
-        [SlashBaseMethod(AllowedMemberGroups = new[] { "administrators" })]
+        [SlashBaseSecurity(AllowedMemberGroups = new[] { "administrators" })]
         public HttpResponseMessage Get()
         {
             return new HttpResponseMessage() { Content = new StringContent("Hello administrator group member!") };

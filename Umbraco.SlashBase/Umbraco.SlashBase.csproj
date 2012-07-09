@@ -211,9 +211,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Attributes\SlashBaseExceptionFilterAttribute.cs" />
-    <Compile Include="Attributes\SlashBaseMethodAttribute.cs" />
     <Compile Include="Attributes\SlashBaseSecurityAttribute.cs" />
-    <Compile Include="Attributes\SlashBaseServiceAttribute.cs" />
     <Compile Include="Controllers\SlashBaseController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

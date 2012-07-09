@@ -7,7 +7,7 @@
 
     public class UserTypeSecureController : SlashBaseController
     {
-        [SlashBaseMethod(AllowedUserTypes = new[] { "administrator" })]
+        [SlashBaseSecurity(AllowedUserTypes = new[] { "administrator" })]
         public HttpResponseMessage Get()
         {
             return new HttpResponseMessage() { Content = new StringContent("Hello administrator user type!") };

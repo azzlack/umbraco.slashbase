@@ -7,7 +7,7 @@
 
     public class MemberTypeSecureController : SlashBaseController
     {
-        [SlashBaseMethod(AllowedMemberTypes = new[] { "administrator" })]
+        [SlashBaseSecurity(AllowedMemberTypes = new[] { "administrator" })]
         public HttpResponseMessage Get()
         {
             return new HttpResponseMessage() { Content = new StringContent("Hello administrator type!") };

@@ -1,5 +1,6 @@
 ﻿namespace Umbraco.SlashBase.Attributes
 {
+    using System;
     using System.Linq;
     using System.Net;
     using System.Net.Http;
@@ -13,7 +14,8 @@
     /// <summary>
     /// Base attribute for SlashBase security.
     /// </summary>
-    public abstract class SlashBaseSecurityAttribute : ActionFilterAttribute
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false)]
+    public class SlashBaseSecurityAttribute : ActionFilterAttribute
     {
         /// <summary>
         /// Gets or sets the allowed members.
