@@ -23,3 +23,9 @@ Example (from the Tests.Controllers project):
 <tr><td>GET: /ubase/Open</td><td>Runs the Get() method in the  OpenController class</td></tr>
 <tr><td>GET: /ubase/Open/1</td><td>Runs the Get(string id) method in the  OpenController class</td></tr>
 </table>
+
+## Custom routing ##
+
+Custom routing can be achieved by downloading and installing the NuGet package "[AttributeRouting.WebApi](http://nuget.org/packages/AttributeRouting.WebApi)" in your class project.
+
+You can read more about how to use that package here: [https://github.com/mccalltd/AttributeRouting/wiki/Routing-to-Actions](https://github.com/mccalltd/AttributeRouting/wiki/Routing-to-Actions)
