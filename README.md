@@ -5,7 +5,7 @@ uBase
 
 ## How to use ##
 
-1. Go to your Umbraco site and download and install the uBase package.
+1. Go to your Umbraco site and download and install the [uBase package](http://our.umbraco.org/projects/website-utilities/ubase).
 2. Create a regular class project in Visual Studio.
 3. Download and install the NuGet Package "[Umbraco.SlashBase](http://nuget.org/packages/Umbraco.SlashBase)"
 4. Add a new class file and derive from SlashBaseController.
