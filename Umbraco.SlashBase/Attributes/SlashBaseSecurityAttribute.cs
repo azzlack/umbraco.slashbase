@@ -63,46 +63,44 @@
         /// <param name="actionContext">The action context.</param>
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
-            var user = User.GetCurrent();
-            var member = Member.GetCurrentMember();
-
             // Check member first
             if ((this.AllowedMembers != null && this.AllowedMembers.Any()) || (this.AllowedMemberGroups != null && this.AllowedMemberGroups.Any()) || (this.AllowedMemberTypes != null && this.AllowedMemberTypes.Any()))
             {
-                this.ValidateMember(member, actionContext);
+                this.ValidateMember(actionContext);
             }
 
             // Then check user
             if ((this.AllowedUsers != null && this.AllowedUsers.Any()) || (this.AllowedUserTypes != null && this.AllowedUserTypes.Any()))
             {
-                this.ValidateUser(user, actionContext);
+                this.ValidateUser(actionContext);
             }
         }
 
         /// <summary>
         /// Validates the member.
         /// </summary>
-        /// <param name="member">The member.</param>
         /// <param name="actionContext">The action context.</param>
-        private void ValidateMember(Member member, HttpActionContext actionContext)
+        private void ValidateMember(HttpActionContext actionContext)
         {
+            var member = Member.GetCurrentMember();
+
             if (member == null)
             {
                 actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Forbidden);
             }
             else
             {
-                if (this.AllowedMembers.Any() && !this.AllowedMembers.Contains(member.LoginName))
+                if (this.AllowedMembers != null && this.AllowedMembers.Any() && !this.AllowedMembers.Contains(member.LoginName))
                 {
                     // If allowedmembers are set, reject the request if the member is not in the list
                     actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Forbidden);
                 }
-                else if (this.AllowedMemberGroups.Any() && !this.AllowedMemberGroups.Any(x => Roles.GetRolesForUser().Contains(x)))
+                else if (this.AllowedMemberGroups != null && this.AllowedMemberGroups.Any() && !this.AllowedMemberGroups.Any(x => Roles.GetRolesForUser().Contains(x)))
                 {
                     // If allowedmembergroups are set, reject the request if the member is not in the group
                     actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Forbidden);
                 }
-                else if (this.AllowedMemberTypes.Any() && !this.AllowedMemberTypes.Contains(Member.GetCurrentMember().ContentType.Alias))
+                else if (this.AllowedMemberTypes != null && this.AllowedMemberTypes.Any() && !this.AllowedMemberTypes.Contains(Member.GetCurrentMember().ContentType.Alias))
                 {
                     // If allowedmembertypes are set, reject the request if the member is not of the specified type
                     actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Forbidden);
@@ -113,22 +111,23 @@
         /// <summary>
         /// Validates the user.
         /// </summary>
-        /// <param name="user">The user.</param>
         /// <param name="actionContext">The action context.</param>
-        private void ValidateUser(User user, HttpActionContext actionContext)
+        private void ValidateUser(HttpActionContext actionContext)
         {
+            var user = User.GetCurrent();
+
             if (user == null)
             {
                 actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Forbidden);
             }
             else 
             {
-                if (this.AllowedUsers.Any() && !this.AllowedUsers.Contains(User.GetCurrent().LoginName))
+                if (this.AllowedUsers != null && this.AllowedUsers.Any() && !this.AllowedUsers.Contains(User.GetCurrent().LoginName))
                 {
                     // If allowedusers are set, reject the request if the is not in the list
                     actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Forbidden);
-                }                
-                else if (this.AllowedUserTypes.Any() && !this.AllowedUserTypes.Contains(User.GetCurrent().UserType.Alias))
+                }
+                else if (this.AllowedUserTypes != null && this.AllowedUserTypes.Any() && !this.AllowedUserTypes.Contains(User.GetCurrent().UserType.Alias))
                 {
                     // If allowedusertypes are set, reject the request if the user is not of the specified type
                     actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Forbidden);
