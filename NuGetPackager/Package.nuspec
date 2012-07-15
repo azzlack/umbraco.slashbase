@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Umbraco.SlashBase</id>
+    <title>Umbraco uBase</title>
+    <version>1.0.0</version>
+    <authors>Ove Andersen</authors>
+    <owners>EyeCatch</owners>
+    <projectUrl>http://www.eyecatch.no/projects/ubase/</projectUrl>
+    <iconUrl>http://www.eyecatch.no/favicon.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      Extendable system for creating REST services in Umbraco.
+    </description>
+    <releaseNotes>
+    </releaseNotes>
+    <copyright>Copyright EyeCatch 2012</copyright>
+    <tags></tags>
+    <dependencies>
+      <group targetFramework="net45">
+        <dependency id="Microsoft.AspNet.WebApi" version="4.0.20505.0" />
+        <dependency id="UmbracoCms.Core" version="4.7.2" />
+        <dependency id="WebActivator" version="1.5.1" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="lib\**" target="lib" />
+    <file src="tools\**" target="tools" />
+    <file src="content\**" target="content" />
+  </files>
+</package>
