@@ -7,10 +7,9 @@
     using NUnit.Framework;
 
     using umbraco.providers.members;
-
     using Umbraco.SlashBase.Tests.Web.Helpers;
 
-    public class MemberGroupSecureControllerTests : BaseTestFixture
+    public class MemberSecureFunctionsControllerTests : BaseTestFixture
     {
         /// <summary>
         /// The membership provider
@@ -45,7 +44,7 @@
 
             var loggedIn = LoginHelper.DoLogin(member, this.Client);
 
-            var result = this.Client.GetAsync("uBase/MemberGroupSecure").Result;
+            var result = this.Client.GetAsync("uBase/MemberSecureFunctions").Result;
 
             Assert.That(result.StatusCode == HttpStatusCode.OK);
         }
@@ -53,7 +52,7 @@
         [Test]
         public void Get_WhenNotLoggedIn_ShouldReturnForbidden()
         {
-            var result = this.Client.GetAsync("uBase/MemberGroupSecure").Result;
+            var result = this.Client.GetAsync("uBase/MemberSecureFunctions").Result;
 
             Assert.That(result.StatusCode == HttpStatusCode.Forbidden);
         }

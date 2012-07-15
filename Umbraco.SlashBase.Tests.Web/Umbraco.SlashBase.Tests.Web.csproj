@@ -187,6 +187,8 @@
     <Compile Include="Helpers\LoginHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\BaseTestFixture.cs" />
+    <Compile Include="Tests\MemberSecure2ControllerTests.cs" />
+    <Compile Include="Tests\MemberSecureFunctionsControllerTests.cs" />
     <Compile Include="Tests\MemberGroupSecureControllerTests.cs" />
     <Compile Include="Tests\MemberTypeSecureControllerTests.cs" />
     <Compile Include="Tests\UserTypeSecureControllerTests.cs" />

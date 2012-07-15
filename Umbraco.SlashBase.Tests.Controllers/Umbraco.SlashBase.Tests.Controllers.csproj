@@ -179,6 +179,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MemberSecure2Controller.cs" />
+    <Compile Include="MemberSecureFunctionsController.cs" />
     <Compile Include="UserTypeSecureController.cs" />
     <Compile Include="MemberTypeSecureController.cs" />
     <Compile Include="MemberGroupSecureController.cs" />

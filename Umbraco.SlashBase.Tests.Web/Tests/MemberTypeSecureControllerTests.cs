@@ -6,10 +6,9 @@
 
     using NUnit.Framework;
 
-    using Umbraco.SlashBase.Tests.Web.Helpers;
-
-    using umbraco.cms.businesslogic.member;
     using umbraco.providers.members;
+
+    using Umbraco.SlashBase.Tests.Web.Helpers;
 
     public class MemberTypeSecureControllerTests : BaseTestFixture
     {

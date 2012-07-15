@@ -53,7 +53,7 @@
             try
             {
                 // Need to get forms authentication cookie from server, otherwise it won't work
-                var loginResult = client.GetAsync("uBase/MemberSecure/" + member.UserName).Result;
+                var loginResult = client.GetAsync("uBase/MemberSecureFunctions/" + member.UserName).Result;
 
                 return true;
             }
