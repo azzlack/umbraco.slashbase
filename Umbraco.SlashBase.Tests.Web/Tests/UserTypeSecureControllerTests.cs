@@ -36,9 +36,9 @@
         }
 
         [Test]
-        public void Get_WhenNotLoggedIn_ShouldReturnException()
+        public void Get_WhenNotLoggedIn_ShouldReturnForbidden()
         {
-            var result = this.Client.GetAsync("UserTypeSecure").Result;
+            var result = this.Client.GetAsync("uBase/UserTypeSecure").Result;
 
             Assert.That(result.StatusCode == HttpStatusCode.Forbidden);
         }

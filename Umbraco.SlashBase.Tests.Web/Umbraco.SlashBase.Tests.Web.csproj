@@ -141,6 +141,7 @@
       <Private>True</Private>
       <HintPath>..\packages\UmbracoCms.Core.4.7.2\lib\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -183,6 +184,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\LoginHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\BaseTestFixture.cs" />
     <Compile Include="Tests\MemberGroupSecureControllerTests.cs" />

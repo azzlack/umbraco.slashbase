@@ -1,11 +1,20 @@
 ﻿namespace Umbraco.SlashBase.Tests.Web.Tests
 {
+    using System;
+    using System.Collections.Generic;
     using System.Collections.Specialized;
     using System.Net;
+    using System.Net.Http;
+    using System.Security.Principal;
+    using System.Threading;
+    using System.Web;
     using System.Web.Security;
 
     using NUnit.Framework;
 
+    using Umbraco.SlashBase.Tests.Web.Helpers;
+
+    using umbraco.BusinessLogic;
     using umbraco.cms.businesslogic.member;
     using umbraco.providers.members;
 
@@ -38,9 +47,21 @@
         }
 
         [Test]
-        public void Get_WhenNotLoggedIn_ShouldReturnException()
+        public void Get_WhenLoggedIn_ShouldReturnOK()
         {
-            var result = this.Client.GetAsync("MemberGroupSecure").Result;
+            var member = Membership.GetUser("admin");
+
+            var loggedIn = LoginHelper.DoLogin(member, this.Client);
+
+            var result = this.Client.GetAsync("uBase/MemberGroupSecure").Result;
+
+            Assert.That(result.StatusCode == HttpStatusCode.OK);
+        }
+
+        [Test]
+        public void Get_WhenNotLoggedIn_ShouldReturnForbidden()
+        {
+            var result = this.Client.GetAsync("uBase/MemberGroupSecure").Result;
 
             Assert.That(result.StatusCode == HttpStatusCode.Forbidden);
         }
